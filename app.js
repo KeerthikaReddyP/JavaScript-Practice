@@ -6,8 +6,12 @@ const p=new Promise(function(resolve,reject){
 
 async function handlePromise(){
     //JS Engine seems to wait till promise is settled
-    const val=await p;
+    const val1=await p;
     console.log("Namaste promise");
-    console.log(val);
+    console.log(val1);
+
+    const val2=await p;
+    console.log("Namaste promise2");
+    console.log(val2);
 }
 handlePromise();
