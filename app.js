@@ -1,9 +1,12 @@
-const github_url="https://api.github.com/users/KeerthikaReddyP";
+const github_url = "https://api.github.com/users/KeerthikaReddyP";
 
-async function handlePromise(){
-    const data= await fetch(github_url); //fetch() returns a response
-    //Response.json() returns a promise
-    const jsonData= await data.json();
+async function handlePromise() {
+  try {
+    const data = await fetch(github_url);
+    const jsonData = await data.json();
     console.log(jsonData);
+  } catch (err) {
+    console.log(err);
+  }
 }
 handlePromise();
