@@ -4,8 +4,8 @@ const p1=new Promise((resolve,reject)=>{
 });
 
 const p2=new Promise((resolve,reject)=>{
-    setTimeout(()=>resolve("P2 Success"), 1000);
-    // setTimeout(()=>reject("P2 Failed"), 1000);
+    // setTimeout(()=>resolve("P2 Success"), 1000);
+    setTimeout(()=>reject("P2 Failed"), 1000);
 });
 
 const p3=new Promise((resolve,reject)=>{
@@ -13,7 +13,7 @@ const p3=new Promise((resolve,reject)=>{
     // setTimeout(()=>reject("P3 Failed"), 3000);
 });
 
-//Prmise.allSettled returns object with status and value
+//Prmise.allSettled returns object with status and value(reason in case of failure)
 Promise.allSettled([p1,p2,p3])
     .then(res=>console.log(res))
     .catch(err=>console.error(err));
