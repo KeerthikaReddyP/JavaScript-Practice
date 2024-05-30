@@ -1,11 +1,9 @@
-//async always returns a promise
+//Without async await
+const prom=new Promise(function(resolve,reject){
+    resolve("Promise resolved value");
+});
 
-async function getData(){
-    return "Namaste"; //If we do not return a promise, it'll wrap our value into a promise and returns it.
+function getData(){
+    prom.then(res=>console.log(res));
 }
-
-const dataPromise=getData();
-console.log(dataPromise);
-
-dataPromise
-    .then(res=>console.log(res));
+getData();
