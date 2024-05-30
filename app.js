@@ -1,5 +1,5 @@
-const prom=new Promise(function(resolve, reject){
-    resolve("Promise fulfilled");
-});
+const github_url="https://api.github.com/users/KeerthikaReddyP";
 
-prom.then(res=>console.log(res));
+const user=fetch(github_url);
+console.log(user);
+user.then(res=>console.log(res));
