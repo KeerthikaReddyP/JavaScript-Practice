@@ -1,18 +1,13 @@
-const prom=new Promise(function(resolve,reject){
-    resolve("Promise resolved value");
+const p=new Promise(function(resolve,reject){
+    setTimeout(function(){
+        resolve("Promise resolved");
+    },5000);
 });
 
-// function getData(){
-//     prom.then(res=>console.log(res));
-// }
-// getData();
-
-
-async function getData(){
-    const val=await prom;
+async function handlePromise(){
+    //JS Engine seems to wait till promise is settled
+    const val=await p;
+    console.log("Namaste promise");
     console.log(val);
 }
-getData();
-
-//async await combo is used to handle promises.
-//await is a keyword that is used only inside async function
+handlePromise();
