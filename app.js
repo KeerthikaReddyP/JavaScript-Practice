@@ -13,7 +13,7 @@ const p3=new Promise((resolve,reject)=>{
     // setTimeout(()=>reject("P3 Failed"), 3000);
 });
 
-//Prmise.allSettled returns object with status and value(reason in case of failure)
-Promise.allSettled([p1,p2,p3])
+
+Promise.race([p1,p2,p3])
     .then(res=>console.log(res))
     .catch(err=>console.error(err));
