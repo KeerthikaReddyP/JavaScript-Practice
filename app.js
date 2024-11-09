@@ -1,38 +1,38 @@
-// Local scope
+/*
+- In JS, 'this' keyword refers to an object.
+- Which object?
+    It depends on how 'this' is being invoked(called or used).
+*/
 
-// Function scope
+// Global level ('this' refers to window object)
+console.log(this); //window
 
-function abc(){
-    var a=10;
-    let b=20;
-    const c=30;
 
-    console.log(a); //10
-    console.log(b); //20
-    console.log(c); //30
+// In a function
+function fun(){
+    console.log(this); //window
 }
-abc();
-console.log(a); //Error : a is not defined (function scope)
+fun();
 
 
-// Block scope
-function xyz(){
-    if(true){
-        var x=10;
-        let y=20;
-        const z=30;
+// In an object's property(naam)
+var myObject={
+    naam : this
+}
+console.log(myObject.naam); //window
+
+
+// In a method
+var myObject1={
+    naam: 'Keer',
+    myFunc : function(){
+        console.log(this); //'this' refers to the object myObject1
     }
-    
-    console.log(x); //10
-    console.log(y); //Error : y is not defined (Block scope)
-    console.log(z);
 }
-xyz();
-console.log(x); // Error : x is not defined (function scope)
+myObject1.myFunc();
 
-
-//'var' variable is function scoped.
-// 'let' and 'const' are block scoped.
-
-// let and const variables cannot be accessed outside the block of where they've been declared.
-// var variables cannot be accessed outside the function they've been declared.
+// If we add a method (age) later
+myObject1.age=function(){
+    console.log(this); //Same. 'this' refers to the object myObject1
+}
+myObject1.age();
