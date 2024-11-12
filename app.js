@@ -1,38 +1,14 @@
-/*
-- In JS, 'this' keyword refers to an object.
-- Which object?
-    It depends on how 'this' is being invoked(called or used).
-*/
+//Scope (place/part of the program where you can access a variable or a function)
 
-// Global level ('this' refers to window object)
-console.log(this); //window
+function a(){
+    var b=10;
+    function c(){
 
-
-// In a function
-function fun(){
-    console.log(this); //window
-}
-fun();
-
-
-// In an object's property(naam)
-var myObject={
-    naam : this
-}
-console.log(myObject.naam); //window
-
-
-// In a method
-var myObject1={
-    naam: 'Keer',
-    myFunc : function(){
-        console.log(this); //'this' refers to the object myObject1
     }
+    c();
 }
-myObject1.myFunc();
+a();
 
-// If we add a method (age) later
-myObject1.age=function(){
-    console.log(this); //Same. 'this' refers to the object myObject1
-}
-myObject1.age();
+
+//What is the scope of variable 'b'? (i.e., Where can I access this variable 'b'?)
+//Is 'b' inside the scope of function 'c'? (Can I access this 'b' inside the function 'c'?)
