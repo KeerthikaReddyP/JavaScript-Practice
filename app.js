@@ -28,5 +28,15 @@ a();
 
     Each execution context has a reference to it's parent's lexical environment.
     Local memory space along with it's parent's lexical environment is lexical environment of thet function or exec context.
-    
+
+*/
+
+/*
+    Assume variable 'b' is not declared anywhere in the program.
+    It first checks in the local memory of c, then goes to it's parent's lexical environment which is 'a'.
+    It then goes to it's parent's lexical env which is global execution context.
+    It's still not there. So it goes to global execution context's lexical environment, which is pointing to NULL.
+    Then it gives us error saying 'b' is not defined.
+
+    And this whole chain of references to their parent's lexical environmnet is known as the SCOPE CHAIN.
 */
