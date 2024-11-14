@@ -12,3 +12,10 @@ var b=20;
         - Variable 'a' which is declared using 'let' keyword is stored in a separate memory space(Script).
             They are not on the global object.
 */
+
+/*
+    And we cannot access this memory space,
+        we cannot access these 'let' and 'const' declarations before we put in some values in them.
+        i.e., we cannot access them before initializing.
+    This is what hoisting in 'let'.
+*/
