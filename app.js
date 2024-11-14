@@ -1,8 +1,7 @@
 // Hoisting of let and const
 
-console.log(b); // undefined
-console.log(a); //Reference Error : cannot access 'a'  before initialization
 let a=10;
+console.log(a); //10
 var b=20;
 
 /*
@@ -18,4 +17,11 @@ var b=20;
         we cannot access these 'let' and 'const' declarations before we put in some values in them.
         i.e., we cannot access them before initializing.
     This is what hoisting in 'let'.
+*/
+
+/*
+    TEMPORAL DEAD ZONE
+        is the time since when this 'let' variable was hoisted
+        till it is initialized some value.
+        (The time between that is the temporal dead zone.)
 */
