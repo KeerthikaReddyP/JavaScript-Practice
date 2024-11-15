@@ -4,7 +4,8 @@ console.log("SOmething"); //Not printed to the console
 
 let a=10;
 
-var a=20; // SyntaxError : Identifier 'a' has already been declared.
+var b=20;
+var b=30; // But we can do it for 'var'
 
 /*
     We cannot redeclare let variables. 
