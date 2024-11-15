@@ -1,25 +1,18 @@
-// Duplicate redeclaration of 'let'
 
-console.log("SOmething"); //Not printed to the console
 
 let a=10;
-let a=100;
-var a=20;
+{
+    let a=100;
+    var b=30;
+}
+function abc(){
+    var c=100;
+}
+abc();
+console.log(c);
 
-var b=20;
-var b=30; // But we can do it for 'var'
-
-/*
-    We cannot redeclare let variables. 
-    It gives syntax error.
-    It rejects it upfront. No code is run.
-    (But in reference error scenario, code is executed upto the line where error is present. It stops at that particular line.)
-*/
-
-/*
-    Same for 'var'.
-    We cannot use the same name in the same scope again.
-*/
-
-// We can redeclare 'var' variables but not 'let' and 'const'.
-// i.e., We cannot redeclare block-scoped variables.
+//'var' is function scoped.
+// We cannot access it outside of the function it is been declared in.
+// But if it is declared inside a block, it gets attached to the global object(immediate parent of the block).
+//  (If the block is defined inside a function, var is accessible only inside that function. It wont get attached to global object. It gets attached to the function's local memory space.)
+//    Hence we can access it outside the block in which it is declared.
