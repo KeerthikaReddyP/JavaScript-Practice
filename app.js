@@ -1,21 +1,48 @@
-//CONST
+ let a=10;
+
+ {
+    let a=100;
+ }
+
+ function abc(){
+    let a=20;
+    var b=30;
+
+    {
+        let c=200;
+        var d=300;
+    }
+ }
+ abc();
+
+ //Debugger at line 13
+ /*
+    Block
+        c:200
+
+    Local
+        a:20
+        b:30
+        d:undefined
+
+    Script
+        a:10
+
+    Global
+ */
+
 /*
-    'const' is very much similar to 'let'.
-    But, it's even more strict.
-        It behaves the same way in hoisting. (stored in a separate memory space. temporal dead zone)
-    In case of 'const', initialization and declaration should be done at the same time.
-*/
+    Block [block inside function abc]
+        c:200 (line 12 : let c=200)
 
-let a; // Initialization
-a=10; // Declaration
-console.log(a); //10
+    Local [function abc's local memory space]
+        a:20 (line 8 : let a=20)
+        b:30 (line 9 : var b=30)
+        d:undefined (line 13 : var d=300)
+        Even though d is declared inside the block inside function abc,it is in the local memory space(outside block) because, var is function scoped(let and const are block scoped).
 
+    Script [separate memory space for let and const]
+        a:10 (line 1 : let a=10)
 
-
-const b; //SyntaxError : missing initilizer in const declaration
-
-let x=10;
-x=100;    //possible
-
-const y=20;
-y=200;    // Type Error : Assignment to constant variable
+    Global [global memory space]
+ */
