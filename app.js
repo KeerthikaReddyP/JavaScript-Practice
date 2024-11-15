@@ -3,6 +3,8 @@
 console.log("SOmething"); //Not printed to the console
 
 let a=10;
+let a=100;
+var a=20;
 
 var b=20;
 var b=30; // But we can do it for 'var'
@@ -18,3 +20,6 @@ var b=30; // But we can do it for 'var'
     Same for 'var'.
     We cannot use the same name in the same scope again.
 */
+
+// We can redeclare 'var' variables but not 'let' and 'const'.
+// i.e., We cannot redeclare block-scoped variables.
