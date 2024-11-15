@@ -13,3 +13,9 @@ console.log(a); //10
 
 
 const b; //SyntaxError : missing initilizer in const declaration
+
+let x=10;
+x=100;    //possible
+
+const y=20;
+y=200;    // Type Error : Assignment to constant variable
