@@ -1,12 +1,11 @@
-//Block
-//Also known as compound statement
-// defined by curly braces
+// Block scope
 
 {
     var a=10;
-    console.log(a);
+    let b=20;
+    const c=30;
 }
 
-// Block combines multiple JS statements into a group
-// so that we can use multiple statements in a place where JS expects single statement
-// Ex : if, else, loops, functions
+// We cannot access let and const outside the block.
+// But we can access var.
+// bcz, let and const are block scoped and var is function scoped.
