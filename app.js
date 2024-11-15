@@ -1,17 +1,35 @@
-// SHADOWING
+// Illegal Shadowing
 
-var a=100; // attached to global object
-let b=200; // Stored in Script
-
+let a=10;
 {
-    var a=10; // global object
-    let b=20; // stored in block space
-    const c=30;
+    var a=100; //Syntax error : Identifier 'a' has already been declared.
+}
+// We cannot redeclare like this. It is known as illegal shadowing.
 
-    console.log(a); // 10
-    console.log(b); // 20
-    console.log(c);
+
+// But we can do this-->
+let b=20;
+{
+    let b=200;
 }
 
-console.log(a); // 10 --> bcz, a in the first line is shadowed by a inside the block
-console.log(b); // 200 --> let is block scoped. so it gets stored in separate memory space.
+// And this -->
+var c=30;
+{
+    let c=39;
+}
+
+/*
+    Because, if something is shadowing the other, it should not cross the boundary of that thing's scope.
+    If var a=100 in line 5 is shadowing let a=10 in line 3, it shouldn't cross the boundary of it's scope.
+*/
+
+// What is the boundary of 'var'?
+// var is function scoped.
+let x=10;
+function y(){
+    var x=100;
+}
+//This won't give error.
+//Because, this var is inside it's boundaries.
+//It is not interfering with that x(line 29)
