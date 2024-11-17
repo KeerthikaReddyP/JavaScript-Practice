@@ -1,20 +1,22 @@
 // Corner cases in closure
 
-function x(){
-    var a=10;
-    function y(){
-        console.log(a);
+// Accessing variables from one more deeper level
+
+function a(){
+    var x=10;
+    function b(){
+        var y=100;
+        function c(){
+            console.log(x,y);
+        }
+        c();
     }
-    a=100;
-    return y;
+    b();
 }
-x();
+a();
 
-//Here we're changing the value of 'a' to 100 in line 8.
-// When function is returned, a closure is returned.(Function along with its lexical scope)
-// It remembers the reference to 'a'. And not the 'value' of a.
-// So, when trying to print later in the program, it's value has already been changed to 100.
-// Hence 100 will be printed(not 10).
+// Here, we're trying to print x and y, both from c's parent and it's parent's parent.
+// Two closures of formed in this case.
+// Closure of a, which contains x & closure of b, which contains y values
 
-// This 100 is still in the memory, preserved, because of closure..
-// When 'x' was gone, it was not garbage collected. Bcz, it has to be used later.
+// Even if we rreturn the function c, these values still exist and not garbage collected.
