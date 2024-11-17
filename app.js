@@ -1,22 +1,22 @@
 // Corner cases in closure
 
-// Accessing variables from one more deeper level
+// Garbage collection when closure is formed
 
 function a(){
     var x=10;
+    var y=20;
     function b(){
-        var y=100;
-        function c(){
-            console.log(x,y);
-        }
-        c();
+        console.log(x);
     }
-    b();
+    return b;
 }
-a();
 
-// Here, we're trying to print x and y, both from c's parent and it's parent's parent.
-// Two closures of formed in this case.
-// Closure of a, which contains x & closure of b, which contains y values
+a()();
 
-// Even if we rreturn the function c, these values still exist and not garbage collected.
+// This is interesting.
+
+// When we're returning the function b, closure is formed.
+// Closure of a is formed, but it only has the reference to variable 'x' as x is only used in the function b
+// variable y is garbage collected.
+
+// CLosure is formed only with what are necessary. Hence, no memory is used unnecessarily.
