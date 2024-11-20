@@ -1,22 +1,19 @@
-// Corner cases in closure
 
-// Garbage collection when closure is formed
 
-function a(){
-    var x=10;
-    var y=20;
-    function b(){
-        console.log(x);
-    }
-    return b;
+console.log("Start");
+
+setTimeout(function cb(){
+    console.log("Timer");
+},5000);
+
+
+let start=new Date().getTime();
+let end=start;
+while(end<start+10000){
+    end = new Date().getTime();
 }
 
-a()();
+console.log("10 sec pause");
 
-// This is interesting.
 
-// When we're returning the function b, closure is formed.
-// Closure of a is formed, but it only has the reference to variable 'x' as x is only used in the function b
-// variable y is garbage collected.
-
-// CLosure is formed only with what are necessary. Hence, no memory is used unnecessarily.
+console.log("End");
