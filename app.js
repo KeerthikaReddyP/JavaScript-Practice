@@ -1,26 +1,15 @@
-const cart = ["shoes", "ribbons", "bottle"];
+//Promises
 
-createOrder(cart, function () {
-  proceedToPayment(orderId);
+const orderDetails=createOrder(cart);
+
+orderDetails.then(function(){
+    proceedToPayment(orderId);
 });
 
-/*
-    Limitations of using callbacks
-        1. Callbak hell 
-        2. Inversion of control
-*/
-/*
-    If we have callback inside a callback inside a callback and so on, it creates callback hell. Pyramid of Doom.
-    - Our code grows horizontally, instead of vertically
-    - It becomes unreadable and unmaintanable
-*/
-/*
-    Inversion of control : 
-        - As we're passing our callback function to another function, we're losing control of it.
-        - We're blindly trusting the function to which we've given our callback function.
-        - createOrder function might be written by some other developer, or some intern
-            and we've give control of our proceedToPayment callback to createOrder.
-            We don't know what's inside createOrder
-            It might not call our proceedToPayment function, or it might call it twice, or it might misuse it
-        - We just don't have the control over our callback function.
-*/
+// Here we're attaching(not passing) our callback to orderDetails promise.
+// JS ensures that our callback function is called for sure, and called only once.
+// And our code is in our control.
+
+//createOrder returns a promise.
+
+//This way, we're avoiding both callback hell and inversion of control.
