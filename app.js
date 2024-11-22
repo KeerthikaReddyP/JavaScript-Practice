@@ -1,15 +1,29 @@
-//Promises
+// PROMISE
 
-const orderDetails=createOrder(cart);
+const GITHUB_API_URL="https://api.github.com/users/KeerthikaReddyP";
 
-orderDetails.then(function(){
-    proceedToPayment(orderId);
-});
+const promise= fetch(GITHUB_API_URL);
 
-// Here we're attaching(not passing) our callback to orderDetails promise.
-// JS ensures that our callback function is called for sure, and called only once.
-// And our code is in our control.
+console.log(promise);
 
-//createOrder returns a promise.
+promise.then(data=>console.log(data));
 
-//This way, we're avoiding both callback hell and inversion of control.
+// A promise is an object representing eventual completion/rejection of any asynchronous operation.
+/*
+    fetch method returns a promise.
+    Here, it is fetching data fro github users api.
+    - As it is an asynchronous operation, we don't know how much it'll take.
+    - By the time it gets any data, it's value is undefined.
+    
+    - This promise , once resolved, gets populated with data.
+    - It has promise state and promise response
+
+    - And once the promise is resolved(success/failure), our callback function which is attached to it using
+        .then() method gets called
+    - Hence, we've control over our code and we know what our callback is upto.
+
+    - Promise only has 3 states. Pending, fulfilled and rejected.
+*/
+/*
+    The response from promise is readable stream. We cannot directly read it. But we can covert it into json.
+*/
