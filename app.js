@@ -27,3 +27,4 @@ promise.then(data=>console.log(data));
 /*
     The response from promise is readable stream. We cannot directly read it. But we can covert it into json.
 */
+// promises are immutable. We cannot change the data we got from promise.
