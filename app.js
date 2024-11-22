@@ -8,7 +8,7 @@ console.log(promise);
 
 promise.then(data=>console.log(data));
 
-// A promise is an object representing eventual completion/rejection of any asynchronous operation.
+// A promise is an object representing eventual completion/failure of any asynchronous operation.
 /*
     fetch method returns a promise.
     Here, it is fetching data fro github users api.
