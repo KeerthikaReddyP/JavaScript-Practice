@@ -1,40 +1,25 @@
-// PROMISE CHAINING
+// Creating promise
 
-//The problem with using callbacks is callback hell or pyramid of doom.
+// const cart=["shoes","bag","bread"];
 
-createOrder(cart, function () {
-  proceedToPayment(orderId, function () {
-    showOrderSummary(paymentInfo, function () {
-      updateWallet();
+// const promise=createOrder(cart); // orderId
+
+// promise.then(function(){
+//   proceedToPayment(orderId);
+// })
+
+//=========================================================
+
+//Creating our own promise
+
+function createOrder(cart){
+
+    const prom=new Promise(function(resolve,reject){
+        //Logic
     });
-  });
-});
-// This is not readable and maintainable.
-// As code grows, & if we have even more if,else, for loops, it'll become even more complicated.
-// And we don't know which API is getting called where, and the result.
-// Code is growing horizontally instread of vertical.
 
+    return prom;
+}
 
-// Using promises
-
-createOrder(cart)
-  .then(function (orderId) {
-    return proceedToPayment(orderId);
-  })
-  .then(function (paymentInfo) {
-    return showOrderSummary(paymentInfo);
-  })
-  .then(function () {
-    return updateWallet();
-  });
-// This is known as promise chaining.
-// One common mistake - not writing return
-// One must return the callback to ensure the flow of promise chain. Else, it will throw error, or stuck somewhere.
-
-
-// We can also use arrow functions.
-// This will make code even more leaner and readable.
-createOrder(cart)
-  .then(orderId=>proceedToPayment(orderId))
-  .then(paymentInfo=>showOrderSummary(paymentInfo))
-  .then(()=>updateWallet());
+// Here, we're creating a promise by calling Promise constructor using new keyword
+// which takes a function, whose parameters are functions resolve and reject.
