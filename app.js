@@ -1,25 +1,22 @@
-// Creating promise
-
-// const cart=["shoes","bag","bread"];
-
-// const promise=createOrder(cart); // orderId
-
-// promise.then(function(){
-//   proceedToPayment(orderId);
-// })
-
-//=========================================================
-
-//Creating our own promise
+const cart=["shoes","headset","cake"];
 
 function createOrder(cart){
 
-    const prom=new Promise(function(resolve,reject){
-        //Logic
-    });
+  const prom=new Promise(function(resolve,reject){
+      //create order logic
+      //Validate cart
+      //orderId
 
-    return prom;
+      if(!validateCart(cart)){
+        const err=new Error("Cart is not valid");
+        reject(err);
+      }
+      
+      const orderId=123456;
+      if(orderId){
+        resolve(orderId);
+      }
+  });
+
+  return prom;
 }
-
-// Here, we're creating a promise by calling Promise constructor using new keyword
-// which takes a function, whose parameters are functions resolve and reject.
