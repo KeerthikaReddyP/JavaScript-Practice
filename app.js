@@ -1,5 +1,9 @@
 const cart=["shoes","headset","cake"];
 
+function validateCart(cart){
+  return true;
+}
+
 function createOrder(cart){
 
   const prom=new Promise(function(resolve,reject){
@@ -20,3 +24,5 @@ function createOrder(cart){
 
   return prom;
 }
+
+console.log(createOrder(cart));
