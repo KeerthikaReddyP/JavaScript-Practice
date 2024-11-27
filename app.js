@@ -26,6 +26,9 @@ function createOrder(cart) {
 
 const pr = createOrder(cart); // This returns a promise
 
-pr.then((orderId) => console.log(orderId));
+pr.then((orderId) => console.log(orderId))
+  .catch((err) => console.log(err.message));
 
 //This will give red color error in console, because we didn't handle it.
+// We should handle errors gracefully.
+// Using .catch method
