@@ -1,7 +1,7 @@
 const cart = ["shoes", "headset", "cake"];
 
 function validateCart(cart) {
-  return true;
+  return false;
 }
 
 function createOrder(cart) {
@@ -33,6 +33,6 @@ createOrder(cart)
     console.log(orderId);
     return orderId;
   })
+  .catch((err) => console.log(err.message))
   .then((orderId) => proceedToPayment(orderId))
-  .then((paymentInfo)=>console.log(paymentInfo))
-  .catch((err) => console.log(err.message));
+  .then((paymentInfo)=>console.log(paymentInfo));
