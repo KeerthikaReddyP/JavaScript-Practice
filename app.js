@@ -25,4 +25,6 @@ function createOrder(cart){
   return prom;
 }
 
-console.log(createOrder(cart));
+const pr=createOrder(cart); // This returns a promise
+
+pr.then(orderId=>console.log(orderId));
