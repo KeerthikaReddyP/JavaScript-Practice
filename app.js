@@ -33,6 +33,12 @@ createOrder(cart)
     console.log(orderId);
     return orderId;
   })
-  .catch((err) => console.log(err.message))
   .then((orderId) => proceedToPayment(orderId))
-  .then((paymentInfo)=>console.log(paymentInfo));
+  .then((paymentInfo)=>console.log(paymentInfo))
+  .catch((err) => console.log(err.message))
+  .then(()=>console.log("I'll execute no matter what!"));
+
+
+
+// .catch method will handle errors only above it
+// We can still move forward to next step here, even if there's an error in prev step
