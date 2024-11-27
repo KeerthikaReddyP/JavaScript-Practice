@@ -25,5 +25,11 @@ function createOrder(cart) {
 }
 
 const pr = createOrder(cart); // This returns a promise
+console.log(pr); //This shows promise pending
+
+/*
+  As soon as the timer is finished and resolve function gets called, i.e., promise is resolved
+  Now, pr.then is executed and orderId is printed to the console.
+*/
 
 pr.then((orderId) => console.log(orderId));
