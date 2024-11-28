@@ -1,7 +1,7 @@
 const cart = ["shoes", "headset", "cake"];
 
 function validateCart(cart) {
-  return false;
+  return true;
 }
 
 function createOrder(cart) {
