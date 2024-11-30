@@ -12,18 +12,7 @@ const p3=new Promise((resolve,reject)=>{
   setTimeout(()=>resolve("p3 resolved"),5000);
 });
 
-Promise.all([p1,p2,p3])
-  .then((values)=>console.log(values));
+Promise.allSettled([p1,p2,p3])
+  .then(val=>console.log(val));
 
-
-/*
-  Promise.all takes an iterable (array in an iterable, we mostly use arrays)
-  and returns a promise 
-  whose value is an array of all the success values of all the promises sent.
-
-  This will return only if all promises are resolved.
-  And only after all promises are resolved. (After 5 secs in above case)
-*/
-
-// Promise.all results in error if any of the promise gets rejected.
-// It throws an error after first rejection in any promise. It won't wait for all promises to be resolved/rejected.
+//Returns array of hree responses, doesn't matter fulfilled or rejected
