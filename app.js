@@ -15,3 +15,12 @@ promise.then((res) => {
 });
 
 console.log(4);
+
+/*
+  1
+  2
+  4
+  timerStart
+  timerEnd
+  success
+*/
