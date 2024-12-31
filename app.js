@@ -9,8 +9,12 @@ const getData=()=>{
 
 function debounce(fn, delay){
   // Debouncing logic (returns a function)
-  return function(){
-    
+  let timer;
+  return function(...args){
+    clearTimeout(timer);
+    timer=setTimeout(()=>{
+      fn.apply(this,args);
+    },delay);
   }
 };
 
