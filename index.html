@@ -6,9 +6,20 @@
     <title>Javascript Practice</title>
 </head>
 <body>
-    Hehe nothing.
-    <button id="clickMe">Clickkkkkk</button>
-    <input type="text" onkeyup="betterFunction()"/>
+    <h2>Expense tracker</h2>
+    <input type="number" id="amount" placeholder="Choose expense amount">
+    <input type="text" id="description" placeholder="Choose description">
+
+    <select id="category">
+        <option value="fuel">fuel</option>
+        <option value="food">food</option>
+        <option value="movie">movie</option>
+    </select>
+
+    <button onclick="addExpense()">Add expense</button>
+
+    <ul id="expenseList"></ul>
+
     <script src="app.js"></script>
 </body>
 </html>
